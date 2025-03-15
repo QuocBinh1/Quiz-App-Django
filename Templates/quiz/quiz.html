@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thi trắc nghiệm</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #f8f9fa; /* Màu nền dịu nhẹ */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .form-container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 12px;
+            width: 450px; /* Form rộng hơn để tránh bị dồn chữ */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .question {
+            font-weight: bold;
+            font-size: 17px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            text-align: left;  /* Căn lề trái */
+            color: #222;
+        }
+        
+        .options {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+        
+        .options label {
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            color: #444;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        
+        .options label:hover {
+            background: #f0f0f0;
+            cursor: pointer;
+        }
+        
+        .options input {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.03);
+        }
+        
+        
+
+       
+        
+    </style>
+    
+
+</head>
+<body> 
+    <div class="form-container">
+        <h2>Bài kiểm tra</h2>
+        <form method="POST" action="{% url 'submit_quiz' %}">
+            {% csrf_token %}
+            {% for question in questions %}
+            <h3> {{ question.question_text }}</h3> 
+                {% for answer in question.answers.all %}
+                    <input type="radio" name="question_{{ question.id }}" value="{{ answer.id }}">
+                    <label>{{ answer.answer_text }}</label><br>
+                {% endfor %}
+            {% endfor %}
+            <button type="submit">Nộp bài</button>
+
+        </form>
+        
+        
+        
+    </div>
+</body>
+</html>
