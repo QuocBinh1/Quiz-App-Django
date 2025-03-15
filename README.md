@@ -7,7 +7,7 @@
 ![image](https://github.com/user-attachments/assets/08bddd86-46d3-4210-ae60-7886d1bd8fb0)
 
 3. Trang Kết quả
-![image](https://github.com/user-attachments/assets/5807fb59-ae55-4eff-a1bd-a9bba824f123)
+![image](https://github.com/user-attachments/assets/824e83ee-4b49-48d2-868f-2f363c2a3996)
 
 4. Trang Admin quản lí câu hỏi
 ![image](https://github.com/user-attachments/assets/e409d87d-d964-4ab9-ad53-38f820a54e64)
